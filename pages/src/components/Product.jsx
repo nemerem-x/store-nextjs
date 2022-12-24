@@ -6,7 +6,7 @@ export default function Product({product}) {
     return (
     <div className={styles.product}>
         <div className="productImage">
-            <Image src={'/img.jpeg'} width='200' height={'200'} alt='product' />
+            <Image src={product.image} width='200' height={'200'} alt='product' />
         </div>
 
         <div className={styles.title}>

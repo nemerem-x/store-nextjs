@@ -54,8 +54,9 @@
 }
 
 .allProducts {
+  margin: 2em 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 3em;
+  gap: 0 3em;
   justify-content: center;
 }

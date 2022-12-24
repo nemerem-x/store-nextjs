@@ -6,6 +6,7 @@
 
 .product img {
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .title h2 {
@@ -13,7 +14,13 @@
     font-weight: 400;
     height: 38px;
     overflow: hidden;
+    text-overflow: ellipsis;
     margin-bottom: .5em;
+    cursor: pointer;
+}
+
+.title h2:hover {
+    text-decoration: underline;
 }
 
 .title span {
@@ -22,7 +29,7 @@
 }
 
 .price p:nth-child(2) {
-    font-size: 2rem;
+    font-size: 1.7rem;
     line-height: 0.9;
 }
 
