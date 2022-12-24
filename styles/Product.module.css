@@ -1,0 +1,32 @@
+.product {
+    height: auto;
+    width: 14em;
+    margin: 2em 0;
+}
+
+.product img {
+    border-radius: 10px;
+}
+
+.title h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    height: 38px;
+    overflow: hidden;
+    margin-bottom: .5em;
+}
+
+.title span {
+    font-size: 1rem;
+    top: 0;
+}
+
+.price p:nth-child(2) {
+    font-size: 2rem;
+    line-height: 0.9;
+}
+
+.price {
+    display: flex;
+    margin: .3em 0;
+}

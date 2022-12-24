@@ -1,9 +1,4 @@
 .main {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; */
-  /* padding: 6rem; */
   min-height: 100vh;
 }
 
@@ -22,7 +17,8 @@
 .description {
   display: flex;
   align-items: center;
-  height: 15em;
+  min-height: 15em;
+  margin: 2em 0;
 }
 
 .description h1 {
@@ -57,18 +53,9 @@
   cursor: pointer;
 }
 
-.description a {
-  display: flex;
+.allProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 3em;
   justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.description p {
-  position: relative;
-  margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
 }
