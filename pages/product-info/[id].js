@@ -27,6 +27,7 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
+
     const id = context?.params.id
     const res = await fetch('https://fakestoreapi.com/products')
     const data = await res.json()
