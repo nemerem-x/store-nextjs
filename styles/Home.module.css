@@ -33,6 +33,7 @@
   gap: 3em;
   padding-bottom: 1em;
   border-bottom: 2px solid var(--fontColorGray);
+  position: relative;
 }
 
 .filterSection p {
@@ -59,4 +60,42 @@
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 0 3em;
   justify-content: center;
+}
+
+.filterCat {
+  border-radius: 10px;
+  position: absolute;
+  top: 2.5em;
+  height: auto;
+  width: 230px;
+  background-color: #D8ECE4;
+  /* padding: 1em; */
+}
+
+.filterCat p {
+  padding: .8em;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  color: black;
+}
+
+.filterCat p:last-child {
+ border: none;
+}
+
+.filterCat p:hover {
+  background-color: #e7f6f0;
+}
+
+.filterCat p:hover:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.filterCat p:hover:last-child {
+  border-radius:  0 0 10px 10px;
+}
+
+.itemlength {
+  position: absolute;
+  right: 0;
 }

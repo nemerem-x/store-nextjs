@@ -1,5 +1,6 @@
 import Image from "next/image"
 import styles from '../../../styles/Product.module.css'
+import Link from 'next/Link'
 
 export default function Product({product}) {
 
@@ -10,7 +11,7 @@ export default function Product({product}) {
         </div>
 
         <div className={styles.title}>
-            <h2>{product.title}</h2>
+            <Link href={`/product-info/${product.id}`}><h2>{product.title}</h2></Link> 
             <p>{product.rating.rate}</p>
 
             <div className={styles.price}>

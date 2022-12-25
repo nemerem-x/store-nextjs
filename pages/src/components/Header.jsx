@@ -6,13 +6,13 @@ export default function Header() {
   return (
     <div className={styles.header}>
         <div className={styles.nav}>
-            <a href="/">Home</a>
-            <a href="/">About</a>
-            <a href="/">Contact</a>
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
         </div>
 
         <div className="signup">
-            <a href="#">Signup</a>
+            <Link href="/signup">Signup</Link>
         </div>
     </div>
   )
