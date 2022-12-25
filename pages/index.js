@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Product from './src/components/Product'
+import Product from './../components/Product'
 import Data from '../data/products.json'
 import { useState } from 'react'
 
