@@ -4,9 +4,6 @@ const nextConfig = {
   images: {
     domains: ['fakestoreapi.com'],
   },
-  eslint: {
-    dirs: ['.'] //or ['pages', 'hooks']
-  }
 }
 
 module.exports = nextConfig
