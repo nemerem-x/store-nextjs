@@ -25,7 +25,7 @@ export default function Home({data}) {
 
   const products = filter()?.map(product => {
     return (
-      <Product key={product.id} product={product} />
+        <Product key={product.id} product={product} />
     )
   })
 
@@ -76,7 +76,9 @@ export default function Home({data}) {
         </div>
 
         <div className={styles.allProducts}>
+          
           {products}
+
         </div>
 
       </main>
