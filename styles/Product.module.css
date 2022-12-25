@@ -28,6 +28,12 @@
     top: 0;
 }
 
+.title p {
+    display: flex;
+    gap: .2em;
+    /* align-items: center; */
+}
+
 .price p:nth-child(2) {
     font-size: 1.7rem;
     line-height: 0.9;

@@ -72,7 +72,7 @@ export default function Home({data}) {
             </div>
           }
 
-          <p className={styles.itemlength}>showing {filter().length} items</p>
+          <p className={styles.itemlength}>showing {filter()?.length} items</p>
         </div>
 
         <div className={styles.allProducts}>
