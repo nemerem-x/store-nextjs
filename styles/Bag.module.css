@@ -1,7 +1,6 @@
 .bag {
-    height: 100vh;
+    height: calc(100vh - 56px);
     padding: 3em;
-    display: flex;
     width: 80%;
     margin: auto;
 }
@@ -11,19 +10,52 @@
     font-size: 4rem;
 }
 
+.bag p {
+    font-size: 1rem;
+    margin: .2em 0;
+    color: gray;
+}
+
+.baginfo {
+    display: flex;
+    height: 60vh;
+    margin-top: 2em;
+}
+
+.bagitems {
+    width: 60%;
+    height: 100%;
+    padding: 2em;
+    overflow-y: scroll;
+}
+
 .item {
     display: flex;
     position: relative;
     margin-top: 3em;
-    align-items: center;
     gap: 1em;
 }
 
+.title {
+    color: black !important;
+}
+
 .item img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     background-color: black;
 }
+
+.quantity {
+    display: flex;
+    gap: .5em;
+}
+
+.quantity select {
+    background: none;
+    border: none;
+    padding: 0 0.5em;
+  }
 
 .price {
     display: flex;
@@ -31,6 +63,10 @@
     right: 0;
 }
 
+.price p {
+    color: black;
+}
+
 .summary {
-    width: 20%;
+    width: 40%;
 }
