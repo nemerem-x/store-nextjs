@@ -30,12 +30,14 @@ export default function bag() {
                           <option>10</option>
                         </select>
                       </div>
+                    <p>delete</p>
                     </div>
 
                     <div className={styles.price}>
                           <p>$</p>
                           <p>100</p>
                     </div>
+
               </div>
 
               <div className={styles.item}>
@@ -157,7 +159,22 @@ export default function bag() {
             </div>
 
             <div className={styles.summary}>
-
+              <h2>Summary</h2>
+              <div className={styles.summarydetails}>
+                <div className={styles.subtotal}>
+                  <p>Subtotal</p>
+                  <p>$400</p>
+                </div>
+                <div className={styles.subtotal}>
+                  <p>Estimated Delivery & Handling</p>
+                  <p>Free</p>
+                </div>
+                <div className={styles.total}>
+                  <p>Total</p>
+                  <p>$400</p>
+                </div>
+              </div>
+              <button>Checkout</button>
             </div>
         </div>
 
