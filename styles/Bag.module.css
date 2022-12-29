@@ -35,6 +35,8 @@
     position: relative;
     margin-bottom: 3em;
     gap: 1em;
+    border-bottom: 1px solid rgb(222, 222, 222);
+    padding-bottom: 1em;
 }
 
 .title {
@@ -117,6 +119,16 @@
     margin: 1em 0;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
+}
+
+.deleteLike {
+    display: flex;
+    gap: 1em;
+    margin: 0.5em 0;
+}
+
+.deleteLike svg {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1000px) {
