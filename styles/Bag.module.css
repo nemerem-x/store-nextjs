@@ -118,3 +118,28 @@
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
 }
+
+@media screen and (max-width: 1000px) {
+    .bag {
+        height: 100%;
+        width: 100%;
+        padding: 4em 0 0 0 ;
+    }
+    .baginfo {
+        flex-direction: column;
+        height: 100%;
+        margin-top: 5em;
+    }
+
+    .bagitems {
+        overflow:visible;
+        height: auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .summary {
+        width: 100%;
+        margin-bottom: 4em;
+    }
+}
