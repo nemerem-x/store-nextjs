@@ -1,10 +1,19 @@
 import styles from '../styles/Bag.module.css'
 import CartItem from '../components/CartItem'
 import { useState } from 'react'
+import { useRecoilValue } from "recoil"
+import { bagState } from '../components/States'
 
 export default function bag() {
 
-  const [total, setTotal] = useState(0)
+  const bag = useRecoilValue(bagState);
+
+  const initialValue = 0;
+  const total = bag.reduce((accumulator,current) => accumulator + current.price * current.quantity, initialValue)
+
+  const bagItems = bag.map(item => {
+    return  <CartItem key={item.id} item={item} />
+  })
     
   return (
     <div className={styles.bag}>
@@ -13,9 +22,9 @@ export default function bag() {
         <div className={styles.baginfo}>
             <div className={styles.bagitems}>
 
-              <CartItem setTotal={setTotal} />
-
-              <CartItem setTotal={setTotal} />
+              {
+                bag.length ? bagItems : <p className={styles.empty}>Your bag is empty</p>
+              }
 
             </div>
 

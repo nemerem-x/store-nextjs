@@ -8,18 +8,29 @@ export default function Details({details}) {
     const bag = useRecoilValue(bagState);
     const setItem = useSetRecoilState(bagState)
 
-    console.log(bag)
-
     const addToBag = () => {
-        setItem(prevState => [
-            ...prevState,
-            {
-            id: detail.id,
-            name: detail.description,
-            category: detail.category,
-            price: detail.price
-            }
-        ])
+
+        const check = bag.some(item => item.id == detail.id)
+
+        let updated = bag.map(obj => {
+            if(obj.id == detail.id) {
+                return { ...obj, quantity: obj.quantity + 1}
+            } 
+            return obj
+        })
+
+        if(!check) {
+            updated.push({
+                        id: detail.id,
+                        name: detail.title,
+                        category: detail.category,
+                        price: detail.price,
+                        quantity: 1
+                        })
+        }
+
+        setItem(updated)
+
     }
 
   return (

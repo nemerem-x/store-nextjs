@@ -1,25 +1,36 @@
 import { useState,useEffect } from "react"
 import styles from '../styles/Bag.module.css'
+import { useSetRecoilState, useRecoilValue } from "recoil"
+import { bagState } from "./States"
 
-export default function CartItem({setTotal}) {
+export default function CartItem({item}) {
 
-    const [quantity, setQuantity] = useState(1)
-    const [amount, setAmount] = useState(10)
-
-    useEffect(()=>{
-        setTotal(amount * quantity)
-    },[quantity])
+    const [quantity, setQuantity] = useState(item?.quantity)
+    const [amount, setAmount] = useState(item?.price)
+    const bag = useRecoilValue(bagState);
+    const setItem = useSetRecoilState(bagState)
 
     const handleChange = (e) => {
+
         setQuantity(parseInt(e.target.value))
+
+        let updated = bag.map(obj => {
+            if(obj.id == item.id) {
+                return { ...obj, quantity: parseInt(e.target.value)}
+            } 
+            return obj
+        })
+
+        setItem(updated)
+
     }
 
   return (
         <div className={styles.item}>
             <img></img>
             <div className={styles.info}>
-            <p className={styles.title}>Item 1 - school bag</p>
-            <p>category</p>
+            <p className={styles.title}>{item?.title}</p>
+            <p>{item?.category}</p>
 
             <div className={styles.quantity}>
                 <p>Quantity</p>
