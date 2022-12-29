@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import styles from '../styles/Bag.module.css'
 
 export default function CartItem({setTotal}) {
 
     const [quantity, setQuantity] = useState(1)
+    const [amount, setAmount] = useState(10)
+
+    useEffect(()=>{
+        setTotal(amount * quantity)
+    },[quantity])
 
     const handleChange = (e) => {
         setQuantity(parseInt(e.target.value))
@@ -43,7 +48,7 @@ export default function CartItem({setTotal}) {
 
         <div className={styles.price}>
             <p>$</p>
-            <p>{10.5 * quantity}</p>
+            <p>{amount * quantity}</p>
         </div>
 
     </div>

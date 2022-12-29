@@ -15,6 +15,8 @@ export default function bag() {
 
               <CartItem setTotal={setTotal} />
 
+              <CartItem setTotal={setTotal} />
+
             </div>
 
             <div className={styles.summary}>
