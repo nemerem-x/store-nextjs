@@ -29,13 +29,11 @@
     height: 100%;
     padding: 2em;
     overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .empty {
     text-align: center;
+    margin-top: 8em !important;
 }
 
 .item {

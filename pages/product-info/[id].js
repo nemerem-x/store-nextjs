@@ -23,6 +23,7 @@ export default function Details({details}) {
             updated.push({
                         id: detail.id,
                         name: detail.title,
+                        image: detail.image,
                         category: detail.category,
                         price: detail.price,
                         quantity: 1
