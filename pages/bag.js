@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRecoilValue } from "recoil"
 import { bagState } from '../components/States'
 
-export default function bag() {
+export default function Bag() {
 
   const bagItem = useRecoilValue(bagState);
 
