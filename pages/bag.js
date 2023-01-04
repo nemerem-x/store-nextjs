@@ -6,14 +6,14 @@ import { bagState } from '../components/States'
 
 export default function bag() {
 
-  const bag = useRecoilValue(bagState);
+  const bagItem = useRecoilValue(bagState);
 
-  const local = localStorage.setItem('myCat', bag);
+  // const local = localStorage.setItem('myCat', bag);
 
   const initialValue = 0;
-  const total = bag.reduce((accumulator,current) => accumulator + current.price * current.quantity, initialValue)
+  const total = bagItem.reduce((accumulator,current) => accumulator + current.price * current.quantity, initialValue)
 
-  const bagItems = bag.map(item => {
+  const bagItems = bagItem.map(item => {
     return  <CartItem key={item.id} item={item} />
   })
     
@@ -25,7 +25,7 @@ export default function bag() {
             <div className={styles.bagitems}>
 
               {
-                bag.length ? bagItems : <p className={styles.empty}>Your bag is empty</p>
+                bagItem.length ? bagItems : <p className={styles.empty}>Your bag is empty</p>
               }
 
             </div>
