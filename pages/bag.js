@@ -8,6 +8,8 @@ export default function bag() {
 
   const bag = useRecoilValue(bagState);
 
+  const local = localStorage.setItem('myCat', bag);
+
   const initialValue = 0;
   const total = bag.reduce((accumulator,current) => accumulator + current.price * current.quantity, initialValue)
 
