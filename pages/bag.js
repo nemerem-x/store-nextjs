@@ -1,14 +1,27 @@
 import styles from '../styles/Bag.module.css'
 import CartItem from '../components/CartItem'
-import { useState } from 'react'
-import { useRecoilValue } from "recoil"
+import { useEffect } from 'react'
+import { useRecoilValue, useSetRecoilState } from "recoil"
 import { bagState } from '../components/States'
 
 export default function Bag() {
 
-  const bagItem = useRecoilValue(bagState);
+  const setItem = useSetRecoilState(bagState)
+  const bagItem = useRecoilValue(bagState)
 
-  // const local = localStorage.setItem('myCat', bag);
+  //Get from LocalStorage
+  useEffect(()=>{
+    const storage = JSON.parse(localStorage.getItem('myCat'))
+    if(storage?.length) {
+       setItem(storage)
+    }
+  },[])
+
+  //add to localstorage
+  useEffect(()=>{
+    localStorage.setItem('myCat', JSON.stringify(bagItem))
+  },[bagItem])
+  
 
   const initialValue = 0;
   const total = bagItem.reduce((accumulator,current) => accumulator + current.price * current.quantity, initialValue)

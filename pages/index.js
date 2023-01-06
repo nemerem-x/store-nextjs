@@ -30,12 +30,6 @@ export default function Home({data}) {
   })
 
   return (
-    <>
-    {!data ? (
-        <>
-          <h1>IS LOADING</h1>
-        </>
-      ) : (
       <>
       <Head>
         <title>Shop For All</title>
@@ -89,9 +83,6 @@ export default function Home({data}) {
 
       </main>
       </>
-      )
-    }
-    </>
   )
 }
 
