@@ -2,12 +2,23 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Product from './../components/Product'
 import Data from '../data/products.json'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRecoilValue, useSetRecoilState } from "recoil"
+import { bagState } from '../components/States'
 
 export default function Home({data}) {
 
   const [selected, setSelected] = useState('Filter by')
   const [filterDropdown, setFilterDropdown] = useState(false)
+  const setItem = useSetRecoilState(bagState)
+
+  //Get from LocalStorage
+  useEffect(()=>{
+    const storage = JSON.parse(localStorage.getItem('myCat'))
+    if(storage?.length) {
+        setItem(storage)
+    }
+  },[])
 
   const select = (e) => {
     setSelected(e.target.textContent)

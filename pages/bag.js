@@ -9,14 +9,6 @@ export default function Bag() {
   const setItem = useSetRecoilState(bagState)
   const bagItem = useRecoilValue(bagState)
 
-  //Get from LocalStorage
-  useEffect(()=>{
-    const storage = JSON.parse(localStorage.getItem('myCat'))
-    if(storage?.length) {
-       setItem(storage)
-    }
-  },[])
-
   //add to localstorage
   useEffect(()=>{
     localStorage.setItem('myCat', JSON.stringify(bagItem))
