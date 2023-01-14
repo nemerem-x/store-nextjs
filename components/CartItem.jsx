@@ -26,6 +26,7 @@ export default function CartItem({item}) {
     const removeItem = () => {
         const newBag = bag.filter(obj => obj.id !== item.id)
         setItem(newBag)
+        localStorage.setItem("myCat", JSON.stringify(newBag))
     }
 
   return (

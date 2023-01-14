@@ -29,7 +29,8 @@ export default function Details({details}) {
                         quantity: 1
                         })
         }
-
+        
+        localStorage.setItem("myCat", JSON.stringify(updated))
         setItem(updated)
 
     }

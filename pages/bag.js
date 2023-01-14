@@ -6,13 +6,9 @@ import { bagState } from '../components/States'
 
 export default function Bag() {
 
-  const setItem = useSetRecoilState(bagState)
   const bagItem = useRecoilValue(bagState)
 
-  //add to localstorage
-  useEffect(()=>{
-    localStorage.setItem('myCat', JSON.stringify(bagItem))
-  },[bagItem])
+  
   
 
   const initialValue = 0;
