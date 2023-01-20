@@ -39,6 +39,10 @@ export default function Details({details}) {
 
   return (
     <div className={styles.infoBox}>
+        <div>
+            <p className={styles.categoryMobile}>{detail.category}</p>
+            <p className={styles.titleMobile}>{detail.title}</p>
+        </div>
         <Image
             src={detail.image}
             alt="Product Image"
@@ -46,7 +50,7 @@ export default function Details({details}) {
             height={500}
         />
         <div className="info">
-            <p>{detail.category}</p>
+            <p className={styles.category}>{detail.category}</p>
             <p className={styles.title}>{detail.title}</p>
             <p>{detail.description}</p>
             <p className={styles.price}>${detail.price}</p>

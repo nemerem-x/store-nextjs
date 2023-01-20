@@ -1,9 +1,10 @@
 .infoBox {
     padding: 5em 0;
-    width: 70%;
+    width: 100%;
     margin: auto;
     display: flex;
     gap: 5em;
+    /* background-color: white; */
 }
 
 .title {
@@ -27,4 +28,49 @@
 .price {
     font-size: 2rem;
     margin: .5em 0;
+}
+
+.titleMobile {
+    display: none;
+}
+
+.categoryMobile {
+    display: none;
+}
+
+.category {
+    display: block;
+}
+
+@media screen and (max-width: 1000px) {
+    .infoBox {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .infoBox img {
+        width: 100%;
+        height: auto;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .categoryMobile{
+        display: block;
+    }
+
+    .category {
+        display: none;
+    }
+
+    .titleMobile {
+        font-size: 2rem;
+        margin-bottom: 0.2em;
+        margin-top: 0.3em;
+        display: block;
+    }
 }
