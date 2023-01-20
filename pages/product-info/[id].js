@@ -1,6 +1,7 @@
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { bagState } from "../../components/States"
 import Image from 'next/image'
+import styles from '../../styles/ProductDetails.module.css'
 
 export default function Details({details}) {
 
@@ -37,19 +38,20 @@ export default function Details({details}) {
     }
 
   return (
-    <div>
+    <div className={styles.infoBox}>
         <Image
             src={detail.image}
             alt="Product Image"
             width={500}
             height={500}
         />
-        <p>{detail.id}</p>
-        <p>{detail.description}</p>
-        <p>{detail.title}</p>
-        <p>{detail.category}</p>
-        <p>${detail.price}</p>
-        <button onClick={addToBag}>Add to Bag</button>
+        <div className="info">
+            <p>{detail.category}</p>
+            <p className={styles.title}>{detail.title}</p>
+            <p>{detail.description}</p>
+            <p className={styles.price}>${detail.price}</p>
+            <button onClick={addToBag}>Add to Bag</button>
+        </div>
     </div>
   )
 }
