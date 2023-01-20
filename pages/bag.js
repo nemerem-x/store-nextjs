@@ -8,9 +8,6 @@ export default function Bag() {
 
   const bagItem = useRecoilValue(bagState)
 
-  
-  
-
   const initialValue = 0;
   const total = bagItem.reduce((accumulator,current) => accumulator + current.price * current.quantity, initialValue)
 
@@ -36,7 +33,7 @@ export default function Bag() {
               <div className={styles.summarydetails}>
                 <div className={styles.subtotal}>
                   <p>Subtotal</p>
-                  <p>${total}</p>
+                  <p>${total.toFixed(2)}</p>
                 </div>
                 <div className={styles.subtotal}>
                   <p>Estimated Delivery & Handling</p>
@@ -44,7 +41,7 @@ export default function Bag() {
                 </div>
                 <div className={styles.total}>
                   <p>Total</p>
-                  <p>${total}</p>
+                  <p>${total.toFixed(2)}</p>
                 </div>
               </div>
               <button>Checkout</button>
