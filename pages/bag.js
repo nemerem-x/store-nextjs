@@ -1,6 +1,6 @@
 import styles from '../styles/Bag.module.css'
 import CartItem from '../components/CartItem'
-import { useEffect } from 'react'
+import Link from 'next/link'
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { bagState } from '../components/States'
 
@@ -44,7 +44,7 @@ export default function Bag() {
                   <p>${total.toFixed(2)}</p>
                 </div>
               </div>
-              <button>Checkout</button>
+              <Link href={`/checkout`}><button>Checkout</button></Link>
             </div>
         </div>
 
