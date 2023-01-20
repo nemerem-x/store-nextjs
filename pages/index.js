@@ -6,11 +6,21 @@ import { useState, useEffect } from 'react'
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { bagState } from '../components/States'
 
-export default function Home({data}) {
+export default function Home() {
 
   const [selected, setSelected] = useState('Filter by')
   const [filterDropdown, setFilterDropdown] = useState(false)
+  const [data, setData] = useState([])
   const setItem = useSetRecoilState(bagState)
+
+  useEffect(()=>{
+    const products = async () => {
+      const res = await fetch('https://fakestoreapi.com/products')
+      const data = await res.json()
+      setData(data)
+    }
+    products()
+  },[data])
 
   //Get from LocalStorage
   useEffect(()=>{
@@ -88,7 +98,7 @@ export default function Home({data}) {
 
         <div className={styles.allProducts}>
           
-          {products}
+          {data.length ? products : <p>Loading...</p>}
 
         </div>
 
@@ -97,14 +107,14 @@ export default function Home({data}) {
   )
 }
 
-export async function getServerSideProps() {
+// export async function getServerSideProps() {
 
-  const res = await fetch('https://fakestoreapi.com/products')
-  const data = await res.json()
+//   const res = await fetch('https://fakestoreapi.com/products')
+//   const data = await res.json()
 
-  return {
-    props: {
-      data: data
-    }
-  }
-}
+//   return {
+//     props: {
+//       data: data
+//     }
+//   }
+// }
