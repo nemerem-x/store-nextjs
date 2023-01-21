@@ -1,0 +1,181 @@
+.checkout {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    gap: 2em;
+    flex-direction: row-reverse;
+    margin-top: 3em;
+}
+
+/* .bag {
+    height: calc(100vh - 56px);
+    padding: 3em;
+    width: 80%;
+    margin: auto;
+}
+
+.bag h2 {
+    font-weight: 300;
+    font-size: 3rem;
+}
+
+.bag p {
+    font-size: 1rem;
+    margin: .2em 0;
+    color: gray;
+} */
+
+.baginfo {
+    display: flex;
+    gap: 2em;
+    height: 60vh;
+    margin-top: 2em;
+}
+
+.bagitems {
+    width: 65%;
+    min-height: 300px;
+    height: 100%;
+    padding: 2em;
+    overflow-y: scroll;
+}
+
+.empty {
+    text-align: center;
+    margin-top: 8em !important;
+}
+
+.item {
+    display: flex;
+    position: relative;
+    /* margin-bottom: 3em; */
+    gap: 1em;
+    border-bottom: 1px solid rgb(222, 222, 222);
+    padding: 2em 0;
+}
+
+.item:nth-child(1) {
+    padding-top: 0;
+}
+
+.title {
+    color: black !important;
+}
+
+.item img {
+    width: 80px;
+    height: 80px;
+    background-color: black;
+}
+
+.quantity {
+    display: flex;
+    gap: .5em;
+}
+
+.quantity select {
+    background: none;
+    border: none;
+    padding: 0 0.5em;
+  }
+
+.price {
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+
+.price p {
+    color: black;
+}
+
+.summary {
+    background-color: #eceaec;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    width: 35%;
+    padding: 2em;
+}
+
+.summary h2 {
+    font-size: 1.5rem;
+}
+
+.summary p {
+    margin: .5em 0;
+    color: black;
+}
+
+.summary button {
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    padding: 1em 0;
+    cursor: pointer;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+}
+
+.summary button:hover {
+    background-color: rgb(78, 78, 78);
+}
+
+.summarydetails {
+    margin: 2em 0;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding: .6em 0;
+    margin: 1em 0;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.deleteLike {
+    display: flex;
+    gap: 1em;
+    margin: 0.5em 0;
+}
+
+.deleteLike svg {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    /* .bag {
+        height: 100%;
+        width: 100%;
+        padding: 4em 0 0 0 ;
+    } */
+
+    .checkout {
+        flex-direction: column;
+    }
+
+    .baginfo {
+        flex-direction: column;
+        height: 100%;
+        margin-top: 5em;
+    }
+
+    .bagitems {
+        overflow:visible;
+        height: auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .summary {
+        width: 100%;
+        margin-bottom: 4em;
+    }
+}

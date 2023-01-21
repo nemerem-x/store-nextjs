@@ -1,4 +1,4 @@
-import styles from '../styles/Bag.module.css'
+import styles from '../styles/checkout.module.css'
 import CartItem from '../components/CartItem'
 import Link from 'next/link'
 import { useRecoilValue, useSetRecoilState } from "recoil"
@@ -16,10 +16,10 @@ export default function Checkout() {
     })
 
   return (
-    <div>
-        <h1>Checkout</h1>
+    <div className={styles.checkout}>
 
         <div>
+
             <div className={styles.bagitems}>
             {
             bagItem.length ? bagItems : <p className={styles.empty}>Your bag is empty</p>
@@ -49,6 +49,9 @@ export default function Checkout() {
         </div>
 
         <div>
+                        
+        <h1>Checkout</h1>
+        
             <h3>Contact Information</h3>
             <div>
                 <div>
@@ -84,9 +87,8 @@ export default function Checkout() {
             <div>
                 <p>Country</p>
                 <select>
-                    <option>Australia</option>
+                    <option>Nigeria</option>
                 </select>
-                {/* <input type="text" placeholder="Australia"></input> */}
             </div>
 
             <div>
