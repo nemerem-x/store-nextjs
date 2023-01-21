@@ -6,7 +6,7 @@ import styles from '../../styles/ProductDetails.module.css'
 export default function Details({details}) {
 
     const detail = details[0]
-        
+
     const bag = useRecoilValue(bagState);
     const setItem = useSetRecoilState(bagState)
 
