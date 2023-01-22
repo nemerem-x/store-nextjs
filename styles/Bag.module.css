@@ -109,6 +109,11 @@
     border-radius: 10px;
 }
 
+.summary button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
 .summary button:hover {
     background-color: rgb(78, 78, 78);
 }

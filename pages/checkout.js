@@ -4,13 +4,37 @@ import Link from 'next/link'
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { bagState } from '../components/States'
 import { useState } from 'react'
+import { PaystackButton } from 'react-paystack';
 
 export default function Checkout() {
 
     const bagItem = useRecoilValue(bagState)
-
     const initialValue = 0;
     const total = bagItem.reduce((accumulator, current) => accumulator + current.price * current.quantity, initialValue)
+    
+    const publicKey = 'pk_test_5093a6ee583d0b397b5aef04b0a2ea0b57436a39'
+    const amount = total.toFixed(2) * 100 // Remember, set in kobo!
+    const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
+    const [street, setStreet] = useState("")
+
+
+    const componentProps = {
+        reference: (new Date()).getTime().toString(),
+        email,
+        amount,
+        metadata: {
+            phone,
+            name,
+            street,
+        },
+        publicKey,
+        text: "Pay Now",
+        onSuccess: (reference) =>
+            alert("Thanks for doing business with us! Come back soon!!" `${reference}`),
+        onClose: () => alert("Wait! don't go!!!!"),
+    }
 
     const bagItems = bagItem.map(item => {
         return <CartItem key={item.id} item={item} />
@@ -37,7 +61,7 @@ export default function Checkout() {
                         <div className={styles.summarydetails}>
                             <div className={styles.subtotal}>
                                 <p>Subtotal</p>
-                                <p>${total.toFixed(2)}</p>
+                                <p>&#8358;{total.toFixed(2)}</p>
                             </div>
                             <div className={styles.subtotal}>
                                 <p>Estimated Delivery & Handling</p>
@@ -45,7 +69,7 @@ export default function Checkout() {
                             </div>
                             <div className={styles.total}>
                                 <p>Total</p>
-                                <p>${total.toFixed(2)}</p>
+                                <p>&#8358;{total.toFixed(2)}</p>
                             </div>
                         </div>
 
@@ -61,7 +85,7 @@ export default function Checkout() {
                         <div className={styles.name}>
                             <div>
                                 <label htmlFor='first'><p>First name</p></label>
-                                <input id='first' type="text" placeholder="John" required></input>
+                                <input onChange={(e) => setName(e.target.value)} id='first' type="text" placeholder="John" required></input>
                             </div>
                             <div>
                                 <label htmlFor='last'><p>Last name</p></label>
@@ -71,12 +95,12 @@ export default function Checkout() {
 
                         <div>
                             <p>Phone</p>
-                            <input type="email" placeholder="+234 808" required></input>
+                            <input onChange={(e) => setPhone(e.target.value)} type="number" placeholder="+234 808" required></input>
                         </div>
 
                         <div>
                             <p>Email address</p>
-                            <input type="email" placeholder="john@email.com" required></input>
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="john@email.com" required></input>
                         </div>
 
 
@@ -84,7 +108,7 @@ export default function Checkout() {
 
                         <div className={styles.street}>
                             <label htmlFor='address'><p>Street address</p></label>
-                            <input id='address' type="text" placeholder="100 smith street" required></input>
+                            <input onChange={(e) => setStreet(e.target.value)} id='address' type="text" placeholder="100 smith street" required></input>
                         </div>
 
                         <div className={styles.town}>
@@ -111,11 +135,11 @@ export default function Checkout() {
                             </select>
                         </div>
 
-                        <button>Checkout</button>
+                        {/* <button>Checkout</button> */}
+                        <PaystackButton {...componentProps} />
 
                     </div>
                 </form>
-
             </div>
 
         </div>

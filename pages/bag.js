@@ -33,7 +33,7 @@ export default function Bag() {
               <div className={styles.summarydetails}>
                 <div className={styles.subtotal}>
                   <p>Subtotal</p>
-                  <p>${total.toFixed(2)}</p>
+                  <p>&#8358;{total.toFixed(2)}</p>
                 </div>
                 <div className={styles.subtotal}>
                   <p>Estimated Delivery & Handling</p>
@@ -41,10 +41,10 @@ export default function Bag() {
                 </div>
                 <div className={styles.total}>
                   <p>Total</p>
-                  <p>${total.toFixed(2)}</p>
+                  <p>&#8358;{total.toFixed(2)}</p>
                 </div>
               </div>
-              <Link href={`/checkout`}><button>Checkout</button></Link>
+              <Link href={`/checkout`}><button disabled={bagItem.length === 0}>Checkout</button></Link>
             </div>
         </div>
 
