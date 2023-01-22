@@ -98,7 +98,7 @@ export default function Home() {
 
         <div className={styles.allProducts}>
           
-          {data.length ? products : <p>Loading...</p>}
+          {data.length ? products : <p>Loading items...</p>}
 
         </div>
 

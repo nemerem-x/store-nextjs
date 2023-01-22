@@ -1,10 +1,10 @@
 import styles from '../styles/checkout.module.css'
 import CartItem from '../components/CartItem'
-import Link from 'next/link'
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { bagState } from '../components/States'
 import { useState } from 'react'
 import { usePaystackPayment } from 'react-paystack';
+import Success from '../components/Success'
 
 export default function Checkout() {
 
@@ -21,6 +21,8 @@ export default function Checkout() {
     const [phone, setPhone] = useState("")
     const [street, setStreet] = useState("")
 
+    const [referenceId, setReferenceId] = useState(0)
+    const [successful, setSuccessful] = useState(false)
 
     const config = {
         reference: (new Date()).getTime().toString(),
@@ -36,7 +38,8 @@ export default function Checkout() {
 
     const onSuccess = (reference) => {
         // Implementation for whatever you want to do with reference and after success call.
-        console.log(reference);
+        setReferenceId(reference.trxref)
+        setSuccessful(true)
         localStorage.clear()
         setItem([])
     }
@@ -58,6 +61,9 @@ export default function Checkout() {
 
     return (
         <div className={styles.checkout}>
+
+
+            {successful && <Success referenceId={referenceId}/>}
 
             <h1>Checkout</h1>
 
@@ -152,7 +158,6 @@ export default function Checkout() {
                         </div>
 
                         <button disabled={bagItem.length === 0}>Make payment</button>
-                        {/* <PaystackButton {...componentProps} /> */}
 
                     </div>
                 </form>
