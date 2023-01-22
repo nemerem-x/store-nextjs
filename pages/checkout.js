@@ -4,11 +4,13 @@ import Link from 'next/link'
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { bagState } from '../components/States'
 import { useState } from 'react'
-import { PaystackButton } from 'react-paystack';
+import { usePaystackPayment } from 'react-paystack';
 
 export default function Checkout() {
 
     const bagItem = useRecoilValue(bagState)
+    const setItem = useSetRecoilState(bagState)
+
     const initialValue = 0;
     const total = bagItem.reduce((accumulator, current) => accumulator + current.price * current.quantity, initialValue)
     
@@ -20,20 +22,34 @@ export default function Checkout() {
     const [street, setStreet] = useState("")
 
 
-    const componentProps = {
+    const config = {
         reference: (new Date()).getTime().toString(),
         email,
         amount,
+        publicKey,
         metadata: {
             phone,
             name,
             street,
-        },
-        publicKey,
-        text: "Pay Now",
-        onSuccess: (reference) =>
-            alert("Thanks for doing business with us! Come back soon!!" `${reference}`),
-        onClose: () => alert("Wait! don't go!!!!"),
+        }
+    }
+
+    const onSuccess = (reference) => {
+        // Implementation for whatever you want to do with reference and after success call.
+        console.log(reference);
+        localStorage.clear()
+        setItem([])
+    }
+
+    const onClose = () => {
+        // implementation for  whatever you want to do when the Paystack dialog closed.
+        console.log('closed')
+    }
+
+    const initializePayment = usePaystackPayment(config)
+    const makePayment = (e) => {
+        e.preventDefault()
+        initializePayment(onSuccess, onClose)
     }
 
     const bagItems = bagItem.map(item => {
@@ -77,7 +93,7 @@ export default function Checkout() {
 
                 </div>
 
-                <form>
+                <form onSubmit={makePayment}>
                     <div className={styles.contactInfo}>
 
                         <h3>Contact Information</h3>
@@ -85,22 +101,22 @@ export default function Checkout() {
                         <div className={styles.name}>
                             <div>
                                 <label htmlFor='first'><p>First name</p></label>
-                                <input onChange={(e) => setName(e.target.value)} id='first' type="text" placeholder="John" required></input>
+                                <input onChange={(e) => setName(e.target.value)} id='first' type="text" placeholder="John" ></input>
                             </div>
                             <div>
                                 <label htmlFor='last'><p>Last name</p></label>
-                                <input id='last' type="text" placeholder="Doe" required></input>
+                                <input id='last' type="text" placeholder="Doe" ></input>
                             </div>
                         </div>
 
                         <div>
                             <p>Phone</p>
-                            <input onChange={(e) => setPhone(e.target.value)} type="number" placeholder="+234 808" required></input>
+                            <input onChange={(e) => setPhone(e.target.value)} type="number" placeholder="+234 808" ></input>
                         </div>
 
                         <div>
                             <p>Email address</p>
-                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="john@email.com" required></input>
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="john@email.com" ></input>
                         </div>
 
 
@@ -108,18 +124,18 @@ export default function Checkout() {
 
                         <div className={styles.street}>
                             <label htmlFor='address'><p>Street address</p></label>
-                            <input onChange={(e) => setStreet(e.target.value)} id='address' type="text" placeholder="100 smith street" required></input>
+                            <input onChange={(e) => setStreet(e.target.value)} id='address' type="text" placeholder="100 smith street" ></input>
                         </div>
 
                         <div className={styles.town}>
                             <div>
                                 <p>Town/City</p>
-                                <input type="text" placeholder="collingwood" required></input>
+                                <input type="text" placeholder="collingwood" ></input>
                             </div>
 
                             <div>
                                 <p>State</p>
-                                <input type="text" placeholder="VIC" required></input>
+                                <input type="text" placeholder="VIC" ></input>
                             </div>
 
                             <div>
@@ -135,8 +151,8 @@ export default function Checkout() {
                             </select>
                         </div>
 
-                        {/* <button>Checkout</button> */}
-                        <PaystackButton {...componentProps} />
+                        <button disabled={bagItem.length === 0}>Make payment</button>
+                        {/* <PaystackButton {...componentProps} /> */}
 
                     </div>
                 </form>
