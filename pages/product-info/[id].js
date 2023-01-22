@@ -49,7 +49,7 @@ export default function Details({details}) {
             width={500}
             height={500}
         />
-        <div className="info">
+        <div className={styles.info}>
             <p className={styles.category}>{detail.category}</p>
             <p className={styles.title}>{detail.title}</p>
             <p>{detail.description}</p>
