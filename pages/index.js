@@ -20,7 +20,7 @@ export default function Home() {
       setData(data)
     }
     products()
-  },[data])
+  },[])
 
   //Get from LocalStorage
   useEffect(()=>{

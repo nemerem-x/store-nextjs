@@ -127,3 +127,19 @@
   position: absolute;
   right: 0;
 }
+
+.footer {
+  width: 100vw;
+  height: 350px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer h1 {
+  color: rgb(24, 24, 24);
+  font-size: 7rem;
+}
