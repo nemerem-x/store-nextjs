@@ -3,7 +3,7 @@ import { db } from "../../components/firebase";
 
 export default async function products(req, res) {
 
-    const docRef = doc(db, "products", "shoes", "female", "ZEtNGdhsmwpFNaqEvHeB")
+    const docRef = doc(db, "products", "shirts")
     const docSnap = await getDoc(docRef)
 
     if (docSnap.exists()) {
