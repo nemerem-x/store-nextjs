@@ -112,7 +112,8 @@
 }
 
 .filterCat p:hover {
-  background-color: #e7f6f0;
+  background-color: #F6F4F1;
+  color: #393939;
 }
 
 .filterCat p:hover:first-child {
