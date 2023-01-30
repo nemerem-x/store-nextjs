@@ -5,6 +5,7 @@ import { bagState } from '../components/States'
 import { useState } from 'react'
 import { usePaystackPayment } from 'react-paystack';
 import Success from '../components/Success'
+import Failed from '../components/Failed'
 
 export default function Checkout() {
 
@@ -23,6 +24,7 @@ export default function Checkout() {
 
     const [referenceId, setReferenceId] = useState(0)
     const [successful, setSuccessful] = useState(false)
+    const [failed, setFailed] = useState(false)
 
     const config = {
         reference: (new Date()).getTime().toString(),
@@ -37,7 +39,6 @@ export default function Checkout() {
     }
 
     const onSuccess = (reference) => {
-        // Implementation for whatever you want to do with reference and after success call.
         setReferenceId(reference.trxref)
         setSuccessful(true)
         localStorage.clear()
@@ -45,8 +46,7 @@ export default function Checkout() {
     }
 
     const onClose = () => {
-        // implementation for  whatever you want to do when the Paystack dialog closed.
-        console.log('closed')
+        setFailed(true)
     }
 
     const initializePayment = usePaystackPayment(config)
@@ -64,6 +64,8 @@ export default function Checkout() {
 
 
             {successful && <Success referenceId={referenceId}/>}
+
+            {failed && <Failed referenceId={referenceId}/>}
 
             <h1>Checkout</h1>
 
