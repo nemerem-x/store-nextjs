@@ -95,16 +95,16 @@
   position: absolute;
   top: 2.5em;
   height: auto;
-  width: 230px;
-  background-color: #D8ECE4;
+  width: 320px;
+  background-color: #393939;
   /* padding: 1em; */
 }
 
 .filterCat p {
-  padding: .8em;
+  padding: 1.5em;
   border-bottom: 1px solid black;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 .filterCat p:last-child {
