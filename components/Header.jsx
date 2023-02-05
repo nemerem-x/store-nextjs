@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import Logo from '../public/shop-logo.png'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
 import { bagState } from './States'
@@ -24,9 +26,10 @@ export default function Header() {
   return (
     <div className={styles.header}>
         <div className={styles.nav}>
-            <Link className={router.pathname == "/" ? styles.active : ""} href="/">Shop</Link>
-            {/* <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link> */}
+            <Image src={Logo} width="80"></Image>
+            <Link className={router.pathname == "/" ? styles.active : ""} href="/">Home</Link>
+            <Link className={router.pathname == "/about" ? styles.active : ""} href="/about">About</Link>
+            <Link className={router.pathname == "/contact" ? styles.active : ""} href="/contact">Contact</Link>
         </div>
 
         <div className={styles.signup}>
