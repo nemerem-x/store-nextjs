@@ -2,6 +2,10 @@
   min-height: 100vh;
 }
 
+.active {
+  color: #9044ff;
+}
+
 .header {
   display: flex;
   padding: 1em 0;

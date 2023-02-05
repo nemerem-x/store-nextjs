@@ -24,9 +24,9 @@ export default function Header() {
   return (
     <div className={styles.header}>
         <div className={styles.nav}>
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
+            <Link className={router.pathname == "/" ? styles.active : ""} href="/">Shop</Link>
+            {/* <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link> */}
         </div>
 
         <div className={styles.signup}>

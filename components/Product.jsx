@@ -6,7 +6,7 @@ export default function Product({product}) {
 
     return (
     <div className={styles.product}>
-        <div className="productImage">
+        <div className={styles.productImage}>
         <Link href={`/product-info/${product.id}`}><Image src={product.image} width='200' height={'200'} alt='product' /></Link> 
         </div>
 

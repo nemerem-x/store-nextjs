@@ -4,6 +4,10 @@
     margin: 2em 0;
 }
 
+.productImage a {
+    outline: none;
+}
+
 .product img {
     border-radius: 10px;
     cursor: pointer;
