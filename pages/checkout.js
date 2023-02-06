@@ -85,7 +85,7 @@ export default function Checkout() {
                         <div className={styles.summarydetails}>
                             <div className={styles.subtotal}>
                                 <p>Subtotal</p>
-                                <p>&#8358;{total.toFixed(2)}</p>
+                                <p>${total.toFixed(2)}</p>
                             </div>
                             <div className={styles.subtotal}>
                                 <p>Estimated Delivery & Handling</p>
@@ -93,7 +93,7 @@ export default function Checkout() {
                             </div>
                             <div className={styles.total}>
                                 <p>Total</p>
-                                <p>&#8358;{total.toFixed(2)}</p>
+                                <p>${total.toFixed(2)}</p>
                             </div>
                         </div>
 

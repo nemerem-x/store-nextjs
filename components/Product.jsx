@@ -21,7 +21,7 @@ export default function Product({product}) {
             </p>
 
             <div className={styles.price}>
-                <p>&#8358;</p>
+                <p>$</p>
                 <p>{product.price}</p>
             </div>
         </div>

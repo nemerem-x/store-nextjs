@@ -53,7 +53,7 @@ export default function Details({details}) {
             <p className={styles.category}>{detail.category}</p>
             <p className={styles.title}>{detail.title}</p>
             <p>{detail.description}</p>
-            <p className={styles.price}>&#8358; {detail.price}</p>
+            <p className={styles.price}>$ {detail.price}</p>
             <button onClick={addToBag}>Add to Bag</button>
         </div>
     </div>

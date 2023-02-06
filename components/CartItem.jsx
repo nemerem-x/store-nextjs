@@ -62,8 +62,7 @@ export default function CartItem({ item }) {
             </div>
 
             <div className={styles.price}>
-                <p>&#8358;</p>
-                <p>{price * quantity}</p>
+                <p>${price * quantity}</p>
             </div>
 
         </div>

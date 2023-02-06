@@ -33,15 +33,15 @@ export default function Bag() {
               <div className={styles.summarydetails}>
                 <div className={styles.subtotal}>
                   <p>Subtotal</p>
-                  <p>&#8358;{total.toFixed(2)}</p>
+                  <p>${total.toFixed(2)}</p>
                 </div>
                 <div className={styles.subtotal}>
                   <p>Estimated Delivery & Handling</p>
-                  <p>Free</p>
+                  <p>{bagItem.length ? "Free" : "-"}</p>
                 </div>
                 <div className={styles.total}>
                   <p>Total</p>
-                  <p>&#8358;{total.toFixed(2)}</p>
+                  <p>${total.toFixed(2)}</p>
                 </div>
               </div>
               <Link href={`/checkout`}><button disabled={bagItem.length === 0}>Checkout</button></Link>
