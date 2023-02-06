@@ -62,7 +62,7 @@
 
 .filterSection {
   display: flex;
-  gap: 3em;
+  gap: 2em;
   padding-bottom: 1em;
   border-bottom: 2px solid var(--fontColorGray);
   position: relative;
@@ -128,8 +128,7 @@
 }
 
 .itemlength {
-  position: absolute;
-  right: 0;
+  margin-left: auto;
 }
 
 .footer {
@@ -151,14 +150,5 @@
 @media screen and (max-width: 1000px) {
   .allProducts {
     gap: 0em 1em;
-  }
-
-  .itemlength {
-    position: relative;
-  }
-
-  .filterSection {
-    gap: 0em;
-    justify-content: space-between;
   }
 }
