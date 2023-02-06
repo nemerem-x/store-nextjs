@@ -101,7 +101,6 @@
   height: auto;
   width: 320px;
   background-color: #393939;
-  /* padding: 1em; */
 }
 
 .filterCat p {
@@ -151,6 +150,15 @@
 
 @media screen and (max-width: 1000px) {
   .allProducts {
-    gap: 0em 2em;
+    gap: 0em 1em;
+  }
+
+  .itemlength {
+    position: relative;
+  }
+
+  .filterSection {
+    gap: 0em;
+    justify-content: space-between;
   }
 }
