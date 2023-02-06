@@ -35,7 +35,6 @@
 .title p {
     display: flex;
     gap: .2em;
-    /* align-items: center; */
 }
 
 .price p:nth-child(2) {
