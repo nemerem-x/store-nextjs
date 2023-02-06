@@ -89,8 +89,8 @@
 .allProducts {
   margin: 2em 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 0 3em;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0 4.5em;
   justify-content: center;
 }
 
@@ -147,4 +147,10 @@
 .footer h1 {
   color: rgb(24, 24, 24);
   font-size: 7rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .allProducts {
+    gap: 0em 2em;
+  }
 }
