@@ -72,8 +72,7 @@
 
 .price {
     display: flex;
-    position: absolute;
-    right: 0;
+    margin-left: auto;
 }
 
 .price p {
@@ -169,4 +168,5 @@
         width: 100%;
         margin-bottom: 4em;
     }
+
 }
