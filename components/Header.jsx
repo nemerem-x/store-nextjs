@@ -5,9 +5,13 @@ import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
 import { bagState } from './States'
 import { useEffect } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { useRecoilValue, useSetRecoilState } from "recoil"
 
 export default function Header() {
+
+  const isMobile = useMediaQuery({ query: '(max-width: 500px)' })
+
   const router = useRouter()
   const bag = useRecoilValue(bagState)
   const setItem = useSetRecoilState(bagState)
@@ -28,8 +32,14 @@ export default function Header() {
         <div className={styles.nav}>
             <Image src={Logo} width="80"></Image>
             <Link className={router.pathname == "/" ? styles.active : ""} href="/">Home</Link>
-            <Link className={router.pathname == "/about" ? styles.active : ""} href="/about">About</Link>
-            <Link className={router.pathname == "/contact" ? styles.active : ""} href="/contact">Contact</Link>
+            {
+              !isMobile && 
+              <Link className={router.pathname == "/about" ? styles.active : ""} href="/about">About</Link>
+            }
+            {
+              !isMobile &&
+              <Link className={router.pathname == "/contact" ? styles.active : ""} href="/contact">Contact</Link>
+            }
         </div>
 
         <div className={styles.signup}>
