@@ -9,7 +9,7 @@ export default function Success({referenceId}) {
         <div className={styles.modal}>
 
             <div  className={styles.modalBox}>
-                <Image src={failed} width='100' height={'100'} alt='product'/>
+                <Image src={failed} width='100' height={'100'} alt='failed'/>
                 <h2>Payment Cancelled!</h2>
 
                 <div className={styles.ids}>
