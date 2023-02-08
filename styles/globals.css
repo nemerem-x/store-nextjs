@@ -4,6 +4,8 @@
   --font-mono: 'Inter', sans-serif;
   --background: #F6F4F1;
   --fontColorGray: #afadad;
+  --fontColorBlack: #000;
+  --purpleColor: #9044ff;
 }
 
 * {

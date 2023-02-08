@@ -3,7 +3,7 @@
 }
 
 .active {
-  color: #9044ff;
+  color: var(--purpleColor);
 }
 
 .header {
