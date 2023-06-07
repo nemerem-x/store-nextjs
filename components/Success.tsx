@@ -3,8 +3,8 @@ import Image from "next/image";
 import successIcon from "../public/check-mark.png";
 import Link from "next/link";
 
-export default function Success(props: { referenceId: number }) {
-  const { referenceId } = props;
+export default function Success() {
+  // const { referenceId } = props;
   return (
     <div className={styles.successBox}>
       <div className={styles.modal}>
@@ -13,10 +13,10 @@ export default function Success(props: { referenceId: number }) {
           <h2>Payment Successful!</h2>
 
           <div className={styles.ids}>
-            <div>
+            {/* <div>
               <p>Transaction ID:</p>
               <p>{referenceId}</p>
-            </div>
+            </div> */}
 
             <div>
               <p>Order ID:</p>

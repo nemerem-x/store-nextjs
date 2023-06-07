@@ -25,8 +25,8 @@ export default function Checkout() {
   const [phone, setPhone] = useState("");
   const [street, setStreet] = useState("");
 
-  const [referenceId, setReferenceId] = useState<number>(0);
-  const [successful, setSuccessful] = useState(false);
+  // const [referenceId, setReferenceId] = useState<number>(0);
+  const [successful, setSuccessful] = useState(true);
   const [failed, setFailed] = useState(false);
 
   const config: PaystackProps = {
@@ -34,15 +34,13 @@ export default function Checkout() {
     email,
     amount,
     publicKey,
-    metadata: {
-      name,
-      phone,
-      street,
-    },
+    firstname: name,
+    phone,
+    label: street,
   };
 
-  const onSuccess = (reference: { trxref: number }) => {
-    setReferenceId(reference.trxref);
+  const onSuccess = () => {
+    // setReferenceId(reference.trxref);
     setSuccessful(true);
     localStorage.clear();
     setItem([]);
@@ -64,7 +62,7 @@ export default function Checkout() {
 
   return (
     <div className={styles.checkout}>
-      {successful && <Success referenceId={referenceId} />}
+      {successful && <Success />}
 
       {failed && <Failed />}
 
