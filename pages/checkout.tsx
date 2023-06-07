@@ -26,7 +26,7 @@ export default function Checkout() {
   const [street, setStreet] = useState("");
 
   // const [referenceId, setReferenceId] = useState<number>(0);
-  const [successful, setSuccessful] = useState(true);
+  const [successful, setSuccessful] = useState(false);
   const [failed, setFailed] = useState(false);
 
   const config: PaystackProps = {
