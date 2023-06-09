@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styles from "../styles/Bag.module.css";
+import styles from "../../styles/Bag.module.css";
 import { useSetRecoilState, useRecoilValue } from "recoil";
-import { bagState } from "./States";
+import { bagState } from "../recoil/States";
 import { ProductObj } from "../utils/interface";
 import Image from "next/image";
 

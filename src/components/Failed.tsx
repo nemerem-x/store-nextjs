@@ -1,6 +1,6 @@
-import styles from "../styles/failed.module.css";
+import styles from "../../styles/failed.module.css";
 import Image from "next/image";
-import failed from "../public/failed.png";
+import failed from "../../public/failed.png";
 import Link from "next/link";
 
 export default function Success() {

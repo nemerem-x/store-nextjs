@@ -1,11 +1,12 @@
-import styles from "../styles/checkout.module.css";
-import CartItem from "../components/CartItem";
+"use client";
+import styles from "../../../styles/checkout.module.css";
+import CartItem from "../../components/CartItem";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { bagState } from "../components/States";
+import { bagState } from "../../recoil/States";
 import { useState } from "react";
 import { usePaystackPayment } from "react-paystack";
-import Success from "../components/Success";
-import Failed from "../components/Failed";
+import Success from "../../components/Success";
+import Failed from "../../components/Failed";
 import { PaystackProps } from "react-paystack/dist/types";
 
 export default function Checkout() {

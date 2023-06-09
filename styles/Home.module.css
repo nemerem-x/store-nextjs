@@ -138,13 +138,20 @@
   position: absolute;
   left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .footer h1 {
   color: rgb(24, 24, 24);
   font-size: 7rem;
+}
+
+.footer p {
+  color: rgb(148, 148, 148);
+  font-size: .7rem;
 }
 
 @media screen and (max-width: 1000px) {

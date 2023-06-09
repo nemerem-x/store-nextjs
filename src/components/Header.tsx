@@ -1,9 +1,10 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../public/shop-logo.png";
-import styles from "../styles/Home.module.css";
-import { useRouter } from "next/router";
-import { bagState } from "./States";
+import Logo from "../../public/shop-logo.png";
+import styles from "../../styles/Home.module.css";
+import { useRouter, usePathname } from "next/navigation";
+import { bagState } from "../recoil/States";
 import { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -12,6 +13,7 @@ export default function Header() {
   const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
 
   const router = useRouter();
+  const pathname = usePathname();
   const bag = useRecoilValue(bagState);
   const setItem = useSetRecoilState(bagState);
 
@@ -21,6 +23,7 @@ export default function Header() {
     if (storage) {
       setItem(JSON.parse(storage));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {}, [bag]);
@@ -29,12 +32,12 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.nav}>
         <Image src={Logo} width="80" alt="logo"></Image>
-        <Link className={router.pathname == "/" ? styles.active : ""} href="/">
+        <Link className={pathname == "/" ? styles.active : ""} href="/">
           Home
         </Link>
         {!isMobile && (
           <Link
-            className={router.pathname == "/about" ? styles.active : ""}
+            className={pathname == "/about" ? styles.active : ""}
             href="/about"
           >
             About
@@ -42,7 +45,7 @@ export default function Header() {
         )}
         {!isMobile && (
           <Link
-            className={router.pathname == "/contact" ? styles.active : ""}
+            className={pathname == "/contact" ? styles.active : ""}
             href="/contact"
           >
             Contact

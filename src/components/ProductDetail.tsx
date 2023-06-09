@@ -1,13 +1,12 @@
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { bagState } from "../../components/States";
-import Image from "next/image";
+"use client";
+import { ProductObj } from "../utils/interface";
 import styles from "../../styles/ProductDetails.module.css";
-import { ProductObj } from "../../utils/interface";
-import { GetStaticPropsContext } from "next";
+import Image from "next/image";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { bagState } from "../recoil/States";
 
-export default function Details(props: { details: ProductObj[] }) {
-  const { details } = props;
-  const detail = details[0];
+export default function ProductPage(props: { detail: ProductObj }) {
+  const { detail } = props;
 
   const bag = useRecoilValue(bagState);
   const setItem = useSetRecoilState(bagState);
@@ -59,31 +58,3 @@ export default function Details(props: { details: ProductObj[] }) {
     </div>
   );
 }
-
-export const getStaticPaths = async () => {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const data = await res.json();
-  const allPaths = data?.map((each: ProductObj) => {
-    return {
-      params: {
-        id: each.id.toString(),
-      },
-    };
-  });
-
-  return {
-    paths: allPaths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const id = context?.params?.id;
-  const res = await fetch("https://fakestoreapi.com/products");
-  const data = await res.json();
-
-  const details = data.filter((each: ProductObj) => each.id == Number(id));
-  return {
-    props: { details },
-  };
-};

@@ -1,6 +1,6 @@
-import styles from "../styles/success.module.css";
+import styles from "../../styles/success.module.css";
 import Image from "next/image";
-import successIcon from "../public/check-mark.png";
+import successIcon from "../../public/check-mark.png";
 import Link from "next/link";
 
 export default function Success() {

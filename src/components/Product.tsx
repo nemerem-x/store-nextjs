@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../styles/Product.module.css";
+import styles from "../../styles/Product.module.css";
 import Link from "next/link";
 import { ProductObj } from "../utils/interface";
 

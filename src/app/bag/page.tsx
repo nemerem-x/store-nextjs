@@ -1,8 +1,9 @@
-import styles from "../styles/Bag.module.css";
-import CartItem from "../components/CartItem";
+"use client";
+import styles from "../../../styles/Bag.module.css";
+import CartItem from "../../components/CartItem";
 import Link from "next/link";
 import { useRecoilValue } from "recoil";
-import { bagState } from "../components/States";
+import { bagState } from "../../recoil/States";
 
 export default function Bag() {
   const bagItem = useRecoilValue(bagState);
